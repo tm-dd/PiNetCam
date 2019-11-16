@@ -1,0 +1,14 @@
+[Unit]
+Description=send video from the H264 usb camera and audio from a different device as one stream
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/pinetcam/send_webcam.sh h2641 2> /dev/null > /dev/null
+Restart=always
+RestartSec=3s
+User=pi
+Group=pi
+
+[Install]
+WantedBy=multi-user.target

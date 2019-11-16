@@ -1,0 +1,14 @@
+[Unit]
+Description=view video from the H264 usb camera
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/pinetcam/view_webcam.sh h264 2> /dev/null > /dev/null
+Restart=always
+RestartSec=3s
+User=pi
+Group=pi
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,14 @@
+[Unit]
+Description=send audio
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/pinetcam/send_webcam.sh audio 2> /dev/null > /dev/null
+Restart=always
+RestartSec=3s
+User=pi
+Group=pi
+
+[Install]
+WantedBy=multi-user.target

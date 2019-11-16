@@ -1,0 +1,47 @@
+SOME NOTES FOR UNDERSTANDING AND DEBUGING WITHOUT ANY WARRANTY:
+
+About this scripts:
+
+    I write this scripts to send, record and view the worship in my church.
+    The script send_... runs on a Raspberry Pi and will be used from other Raspberry Pis to show the worship in other rooms.
+    A linux computer can record the video signal.
+    For good quality we use a h.264 usb camera. The MJPEG camera have lower quality videos and the setup isn't so easy.
+
+Information about the omxplayer:
+
+    * "omxplayer" is using the GPU (instead of CPU) to decode video signals
+
+    * important options for "omxplayer":
+
+        -b ... use black background
+        --live ... to use live video broadcastings (without long buffering)
+        '-t 10' ... stop the omxplayer after 10 seconds without any (new) input
+
+    * 'killall omxplayer.bin' will stop all old processes
+
+Commands to control the service file "/etc/systemd/system/example.service" :
+
+    * systemctl enable example ... activate example.service
+
+    * systemctl is-enabled example ... check, if example.service is enabled
+
+    * systemctl disable example ... deactivate example.service
+
+    * systemctl start example ... start example.service, without reboot
+
+    * systemctl stop example ... stop example.service immedently
+
+To send a mix from the microphone and a wave file for debuging you can try:
+
+    # only for h2641:
+    # an audio file to mix with the 'line in' signal (necessary for omxplayer, if the signal from the 'line in' is missing)
+    AMIXFILE='/usr/local/audio_signals/440Hz.mp3'
+    
+    # use the wave file only
+    $FFMPEG -i ${VDEVH264} -r 30 -i ${AMIXFILE} -map 0:v:0 -map 1:a:0 -c:v copy -c:a aac -ab 64k -strict 2 -f mpegts ${SENDVIDEOURL1} ;;
+
+    # to mix the wave file with the audio signal
+    $FFMPEG -i ${VDEVH264} -r 30 -filter_complex amerge -i ${AMIXFILE} -f alsa -ac 1 -ar 44100 -ss $AOFFSET -i ${ADEV1} -map 0:v:0 -map 1:a:0 -c:v copy -c:a aac -ab 64k -strict 2 -f mpegts ${SENDVIDEOURL1} ;;
+    
+    # an older AXIS camera
+    STREAMMJPEGFILENAME='http://192.168.156.114/mjpg/video.mjpg'
