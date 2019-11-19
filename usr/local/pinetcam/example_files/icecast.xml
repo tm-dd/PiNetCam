@@ -1,0 +1,100 @@
+<icecast>
+    <location>Your City</location>
+    <admin>Your Name - user@example.org</admin>
+    <limits>
+        <clients>100</clients>
+        <sources>5</sources>
+        <queue-size>524288</queue-size>
+        <client-timeout>20</client-timeout>
+        <header-timeout>15</header-timeout>
+        <source-timeout>10</source-timeout>
+        <!-- If enabled, this will provide a burst of data when a client 
+             first connects, thereby significantly reducing the startup 
+             time for listeners that do substantial buffering. However,
+             it also significantly increases latency between the source
+             client and listening client.  For low-latency setups, you
+             might want to disable this. -->
+        <burst-on-connect>0</burst-on-connect>
+        <!-- same as burst-on-connect, but this allows for being more
+             specific on how much to burst. Most people won't need to
+             change from the default 64k. Applies to all mountpoints  -->
+        <burst-size>0</burst-size>
+    </limits>
+
+    <authentication>
+        <source-password>CHANGE ME PLEASE</source-password>
+        <relay-password>CHANGE ME PLEASE</relay-password>
+        <admin-user>admin</admin-user>
+        <admin-password>CHANGE ME PLEASE</admin-password>
+    </authentication>
+
+    <hostname>pinetcam</hostname>
+
+    <listen-socket>
+        <port>8000</port>
+    </listen-socket>
+
+    <http-headers>
+        <header name="Access-Control-Allow-Origin" value="*" />
+    </http-headers>
+
+    <mount>
+            <mount-name>/audio.mp3</mount-name>
+            <hidden>1</hidden>
+            <max-listeners>100</max-listeners>
+            <username>send worship</username>
+            <password>the ... to send the worship</password>
+            <authentication type="htpasswd">
+                    <!-- in the following file you have to put the login and password to allow streaming --> 
+                    <option name="filename" value="/etc/icecast2/htpasswd.clients"/>
+                    <option name="allow_duplicate_users" value="1"/>
+            </authentication>
+    </mount>
+    
+    <mount>
+            <mount-name>/video_h264.mp4</mount-name>
+            <hidden>1</hidden>
+            <max-listeners>100</max-listeners>
+            <username>send worship</username>
+            <password>the ... to send the worship</password>
+            <authentication type="htpasswd">
+                    <!-- in the following file you have to put the login and password to allow streaming --> 
+                    <option name="filename" value="/etc/icecast2/htpasswd.clients"/>
+                    <option name="allow_duplicate_users" value="1"/>
+            </authentication>
+    </mount>
+    
+    <mount>
+            <mount-name>/video_mjpeg.mp4</mount-name>
+            <hidden>1</hidden>
+            <max-listeners>100</max-listeners>
+            <username>send worship</username>
+            <password>the ... to send the worship</password>
+            <authentication type="htpasswd">
+                    <!-- in the following file you have to put the login and password to allow streaming --> 
+                    <option name="filename" value="/etc/icecast2/htpasswd.clients"/>
+                    <option name="allow_duplicate_users" value="1"/>
+            </authentication>
+    </mount>
+    
+    <fileserve>1</fileserve>
+
+    <paths>
+        <basedir>/usr/share/icecast2</basedir>
+        <logdir>/var/log/icecast2</logdir>
+        <webroot>/usr/share/icecast2/web</webroot>
+        <adminroot>/usr/share/icecast2/admin</adminroot>
+        <alias source="/" destination="/status.xsl"/>
+    </paths>
+
+    <logging>
+        <accesslog>access.log</accesslog>
+        <errorlog>error.log</errorlog>
+        <loglevel>3</loglevel>
+        <logsize>10000</logsize>
+    </logging>
+
+    <security>
+        <chroot>0</chroot>
+    </security>
+</icecast>
