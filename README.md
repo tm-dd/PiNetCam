@@ -29,7 +29,7 @@ Also feel free to help to make the scripts better.
 # installation
 
 1. Install Raspian on an Raspberry Pi 3B+ or 4 as server. Install Raspian on other Raspberry Pis als clients.
-2. Install and configure icecast2 and ffmpeg on the server. Maybe I will upload some example files, later.
+2. Install and configure icecast2 and ffmpeg on the server. Have a look to the directory "example_files".
 3. Download and install all files from here on the server and clients.
 4. Change the configuration file (/usr/local/pinetcam/config.cfg) on all Rasperry Pis. Fill out the values. Mail and recording settings can be ignored, if not necessary for you.
 5. Enable "/etc/systemd/system/\*-webcam-\*.service" on the clients and the server.
