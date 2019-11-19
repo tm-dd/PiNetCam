@@ -34,6 +34,6 @@ Also feel free to help to make the scripts better.
 4. Change the configuration file (/usr/local/pinetcam/config.cfg) on all Rasperry Pis. Fill out the values. Mail and recording settings can be ignored, if not necessary for you.
 5. Enable "/etc/systemd/system/\*-webcam-\*.service" on the clients and the server.
 6. For MJPEG USB cameras you need to find and install a GPU based gst-launch-1.0 package. This can take some extra time.
-7. Try and use this services and send me an information if it works or not.
+7. Try (start the scripts manually, to find problems) and use this services and send me an information if it works or not.
 
 Thomas Mueller <><
