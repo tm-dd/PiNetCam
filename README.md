@@ -1,4 +1,4 @@
-# pinetcam
+# PiNetCam
 Use Raspberry Pis to broadcast an event, like an worship.
 
 ![example hardware plan](/usr/local/pinetcam/example_files/Example_hardware_plan_PiNetCam.png)
