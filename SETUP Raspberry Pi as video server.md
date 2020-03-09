@@ -1,15 +1,15 @@
 # SETUP THE PINETCAM SERVER (AS VIDEO STATION) #
 
-    This is a simple example setup of the PI as webcam.
-    I use an USB sound card AND a h264 USB camera.
+This is a simple example setup of the PI as webcam.
+I use an USB sound card AND a h264 USB camera.
 
-    Copyright (C) 2017 Thomas Mueller <developer@mueller-dresden.de>
+Copyright (C) 2020 Thomas Mueller <developer@mueller-dresden.de>
     
-    This code is free software. You can use, redistribute and/or
-    modify it under the terms of the GNU General Public Licence
-    version 2, as published by the Free Software Foundation.
-    This program is distributed without any warranty.
-    See the GNU General Public Licence for more details.
+This code is free software. You can use, redistribute and/or
+modify it under the terms of the GNU General Public Licence
+version 2, as published by the Free Software Foundation.
+This program is distributed without any warranty.
+See the GNU General Public Licence for more details.
 
 ## EXAMPLE CONFIGURATION ##
 
@@ -143,7 +143,7 @@
         pi@raspberrypi:~ $ sudo -i
         root@raspberrypi:~# echo -n 'listeningTheWorship' | md5sum | awk '{ print "listen:" $1 }' > /etc/icecast2/htpasswd.clients
     
-    WARNING: Better do not use special symbols in the password.
+WARNING: Better do not use special symbols in the password.
 
 ### ENABLE ICECAST2 SERVICE AFTER REBOOTING ###
 
@@ -351,7 +351,7 @@
 
     Quicktime Player -> File -> Open Location... -> Movie Location: http://listen:listeningTheWorship@192.168.1.2:8000/video_h264.mp4
 
-    Pleae note: Quicktime and omxplayer works stable. ffplay stops playing after a few seconds.
+Pleae note: Quicktime and omxplayer works stable. ffplay stops playing after a few seconds.
 
 ### ENABLE THE WEBCAM ###
     
@@ -360,7 +360,7 @@
     Created symlink /etc/systemd/system/multi-user.target.wants/send-webcam-h2641.service → /etc/systemd/system/send-webcam-h2641.service.
     pi@raspberrypi:~ $ sudo systemctl start send-webcam-h2641.service
 
-    Notes: The video should be work two or three minutes after rebooting. You can try th change "MINUPTIMESEC" in the config.cfg .
+Notes: The video should be work two or three minutes after rebooting. You can try th change "MINUPTIMESEC" in the config.cfg .
 
 
 Thomas Mueller <><
