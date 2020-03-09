@@ -27,7 +27,7 @@ audio)
     if [ ! "`ps awux | grep omxplayer | grep audio | grep -v grep`" ]
     then
        echo -e '\n*** try to start to connect to a separate audio streaming url (the signal can be unstable the first minutes) ...\n'
-       omxplayer --live ${STREAMAUDIOURL}
+       ${PLAYERCOMMAND} ${PLAYERGLOBALOPTIONS} ${PLAYERAUDIOOPTIONS} ${STREAMAUDIOURL}
     else
         echo -e '\nIt looks like there is a audio output running with omxplayer.'
     fi
@@ -39,7 +39,7 @@ h264)
     if [ ! "`ps awux | grep omxplayer | grep video | grep -v grep`" ]
     then
         echo -e '\n*** try to start to the video streaming url ...\n'
-        omxplayer -b --live --fps 30 ${STREAMH264URL}
+        ${PLAYERCOMMAND} ${PLAYERGLOBALOPTIONS} ${PLAYERVIDEOOPTIONS} ${PLAYERAUDIOOPTIONS} ${STREAMH264URL}
     else
         echo -e '\nIt looks like there is a video running with omxplayer.'
     fi
@@ -51,7 +51,7 @@ mjpeg)
     if [ ! "`ps awux | grep omxplayer | grep video | grep -v grep`" ]
     then
        echo -e '\n*** try to start to the video streaming url ...\n'
-       omxplayer -b --live --fps 30 ${STREAMMJPEGURL}
+       ${PLAYERCOMMAND} ${PLAYERGLOBALOPTIONS} ${PLAYERVIDEOOPTIONS} ${PLAYERAUDIOOPTIONS} ${STREAMMJPEGURL}
     else
         echo -e '\nIt looks like there is a video running with omxplayer.'
     fi
