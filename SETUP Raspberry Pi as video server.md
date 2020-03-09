@@ -1,4 +1,4 @@
-# SETUP the PINETCAM SENDER #
+# SETUP THE PINETCAM SERVER (VIDEO STATION) #
 
     This is a simple example setup of the PI as webcam.
     I use an USB sound card AND a h264 USB camera.
