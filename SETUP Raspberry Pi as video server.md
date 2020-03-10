@@ -24,6 +24,12 @@ See the GNU General Public Licence for more details.
 
 ## ICECAST2 SERVER ##
 
+### System ###
+
+Install "Raspbian Buster Lite" (2020-02-13-raspbian-buster-lite.zip) or other versions from https://www.raspberrypi.org/downloads/raspbian/ on a fresh SD card.
+
+My video station doesn't need a full desktop system, so a minimal system needs smaller updates, but isn't good useable as desktop or presentation system.
+
 ### INSTALL AND SETUP ICECAST2 ###
 
     pi@raspberrypi:~ $ sudo apt install icecast2 vim
